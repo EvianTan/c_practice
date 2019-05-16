@@ -12,6 +12,7 @@ void drawrectangles(void);
 void drawallshapes(void);
 void iwanttobelieve(void);
 void mondrian(void);
+void drawpolygons(void);
 
 // -----------------------------------------------------------------------------
 // FUNCTION main
@@ -22,9 +23,32 @@ int main(void)
     //drawrectangles();
     //drawallshapes();
     //iwanttobelieve();
-    mondrian();
+    //mondrian();
+    drawpolygons();
 
     return EXIT_SUCCESS;
+}
+
+// -----------------------------------------------------------------------------
+// FUNCTION drawpolygons
+// -----------------------------------------------------------------------------
+void drawpolygons(void)
+{
+    svg* psvg;
+    psvg = svg_create(512, 512);
+
+    if(psvg == NULL)
+    {
+        puts("psvg is NULL");
+    }
+    else
+    {
+        svg_polygon(psvg, "200,10 250,190 160,210", "fill:lime;stroke:purple;stroke-width:1");
+
+        svg_finalize(psvg);
+        svg_save(psvg, "polygons.svg");
+        svg_free(psvg);
+    }
 }
 
 // -----------------------------------------------------------------------------

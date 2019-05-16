@@ -108,6 +108,18 @@ void svg_free(svg* psvg)
 }
 
 // -----------------------------------------------------------------------------
+// FUNCTION svg_polygon
+// -----------------------------------------------------------------------------
+void svg_polygon(svg* psvg, char* points, char* style)
+{
+    appendstringtosvg(psvg, "    <polygon points='");
+    appendstringtosvg(psvg, points);
+    appendstringtosvg(psvg, "' style='");
+    appendstringtosvg(psvg, style);
+    appendstringtosvg(psvg, "' />\n");
+}
+
+// -----------------------------------------------------------------------------
 // FUNCTION svg_circle
 // -----------------------------------------------------------------------------
 void svg_circle(svg* psvg, char* stroke, int strokewidth, char* fill, int r, int cx, int cy)
